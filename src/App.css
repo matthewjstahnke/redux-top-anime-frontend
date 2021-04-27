@@ -60,6 +60,27 @@ h1 {
   margin-bottom: .3em;
   margin-top: .3em;
 }
+.nav ul{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: rgb(98, 9, 116);
+}
+
+.nav li{
+  float: left;
+}
+.nav a{
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+.nav li a:hover {
+  background-color: #111;
+}
 
 .cards {
   display: flex;
@@ -71,7 +92,7 @@ h1 {
   /* width: 300px;
   height: 500px; */
   margin: 10px;
-  background-color: #0dff00;
+  background-color: #560f68;
   border-radius: 10px;
 }
 
