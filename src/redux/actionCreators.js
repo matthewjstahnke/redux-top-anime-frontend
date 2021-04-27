@@ -11,3 +11,16 @@ export const setAnimes = () => {
     })
   )}
 }
+export const setSelectedAnime = (id) => {
+  console.log(id)
+  return dispatch => {
+    fetch(API + "/animes/" + id)
+    .then(res => res.json())
+    .then(anime => dispatch({
+      type: "SET_SELECTED_ANIME",
+      payload: anime
+    })
+  )}
+}
+
+export const unsetAnime = () => ({type: "UNSET_ANIME"})

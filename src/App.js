@@ -1,6 +1,7 @@
 
 import './App.css';
 import AnimeCards from './containers/AnimeCards'
+import AnimePage from './components/AnimePage'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { setAnimes } from './redux/actionCreators'
@@ -19,7 +20,7 @@ class App extends Component  {
         <Nav />
         <h1>Top Anime</h1>
         <Switch>
-            {/* <Route path="/animes/:id" component={AnimePage}/> */}
+            <Route path="/animes/:id" component={AnimePage}/>
             <Route path="/animes" component={AnimeCards}/>
         </Switch>
       </>

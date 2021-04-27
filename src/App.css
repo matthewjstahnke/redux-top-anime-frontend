@@ -47,7 +47,7 @@ body {
 }
 
 h1 {
-  color:  #ff69b4;
+  color:  #f80202;
   text-shadow: -3px 0 white, 0 3px white, 3px 0 white, 0 -3px white;
   text-align: center;
 }
@@ -101,7 +101,11 @@ h1 {
   /* overflow: hidden;
   text-overflow: ellipsis; */
   max-width: 250px;
+  color: hotpink;
   /* text-align: auto; */
+}
+.card a{
+  color: hotpink;
 }
 
 .card img {
