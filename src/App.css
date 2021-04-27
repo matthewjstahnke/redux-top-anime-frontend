@@ -75,9 +75,17 @@ h1 {
   border-radius: 10px;
 }
 
+.card p {
+  /*white-space: nowrap;*/
+  /* overflow: hidden;
+  text-overflow: ellipsis; */
+  max-width: 250px;
+  /* text-align: auto; */
+}
+
 .card img {
-  width: 300px;
-  height: 200px;
+  width: 250px;
+  height: 300px;
 }
 
 .review {
