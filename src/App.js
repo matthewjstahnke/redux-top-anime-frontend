@@ -7,6 +7,9 @@ import { connect } from 'react-redux'
 import { setAnimes } from './redux/actionCreators'
 import { Switch, Route } from 'react-router-dom'
 import Nav from './components/Nav';
+import Home from './components/Home';
+import FallbackPage from './components/FallbackPage';
+import Footer from './components/Footer';
 
 class App extends Component  {
 
@@ -22,7 +25,10 @@ class App extends Component  {
         <Switch>
             <Route path="/animes/:id" component={AnimePage}/>
             <Route path="/animes" component={AnimeCards}/>
+            <Route exact path="/" component={Home} />
+            <Route component={FallbackPage} />
         </Switch>
+        <Footer />
       </>
     );
   }
