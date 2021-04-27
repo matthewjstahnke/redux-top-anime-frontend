@@ -19,7 +19,7 @@ class AnimePage extends Component {
     const { url, title, poster, date, episodes, history, synopsis, id } = this.props
     return (
       <>
-        <h1><a href={ url }>{ title }</a></h1>
+        <h3><a href={ url }>{ title }</a></h3>
         <button onClick={ history.goBack }>Go back!</button>
         <p><img src={ poster } alt={ title }/></p>
         <p>Release Date: { date }</p>
