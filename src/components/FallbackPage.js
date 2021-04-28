@@ -4,7 +4,7 @@ class FallbackPage extends Component {
     render() {
         return (
           <div>
-            <p>I Don't think we should be here.</p>
+            <p>Looking for something?</p>
           </div>
         )
     }
