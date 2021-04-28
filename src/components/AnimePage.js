@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import ReviewCard from '../components/ReviewCard'
+import ReviewForm from '../components/ReviewForm'
 import { setSelectedAnime, unsetAnime } from '../redux/actionCreators'
 
 class AnimePage extends Component {
@@ -16,16 +18,20 @@ class AnimePage extends Component {
   }
 
   renderPage = () => {
-    const { url, title, poster, date, episodes, history, synopsis, id } = this.props
+    const { title, poster, date, episodes, history, synopsis, id, reviews } = this.props
     return (
       <>
-        <h3><a href={ url }>{ title }</a></h3>
+        <h3>{ title }</h3>
         <button onClick={ history.goBack }>Go back!</button>
         <p><img src={ poster } alt={ title }/></p>
         <p>Release Date: { date }</p>
         <p>Number of Episodes: { episodes }</p>
         <p>Synopsis:</p>
         <p>{ synopsis }</p>
+        <div className="reviews">
+          {this.props.user.id && <ReviewForm anime_id={id}/>}
+          {reviews.map(review => <ReviewCard key={review.id}  {...review}/>)}
+        </div>
       </>
     )
   }
@@ -41,7 +47,8 @@ class AnimePage extends Component {
   }
 }
 const mapStateToProps = (state) => ({
-  ...state.animes.selectedAnime
+  ...state.animes.selectedAnime,
+  user: state.user
 })
 
 export default connect( mapStateToProps, { setSelectedAnime, unsetAnime } )(AnimePage)

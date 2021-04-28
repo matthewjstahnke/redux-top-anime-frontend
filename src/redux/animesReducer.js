@@ -4,12 +4,19 @@ const nullAnime = {
   synopsis: "",
   date: "",
   episodes: "",
-  poster: ""
+  poster: "",
+  reviews:[]
+}
+
+const nullReviewForm = {
+  content: "",
+  rating: 0
 }
 
 const initialanimeState = {
   animes: [],
-  selectedAnime: nullAnime
+  selectedAnime: nullAnime,
+  reviewForm: nullReviewForm
 }
 
 const animesReducer = (state=initialanimeState, action) => {
@@ -20,6 +27,20 @@ const animesReducer = (state=initialanimeState, action) => {
       return {...state, selectedAnime: action.payload}
     case "UNSET_ANIME":
       return {...state, selectedAnime: nullAnime}
+    case "REVIEW_FORM_CHANGE":
+      return {...state, reviewForm: {
+        ...state.reviewForm,
+        [action.payload.name]: action.payload.value
+      }}
+    case "SET_REVIEW":
+      return {
+        ...state,
+        selectedAnime: {
+          ...state.selectedAnime,
+          reviews: [...state.selectedAnime.reviews, action.payload]
+        },
+        reviewForm: nullReviewForm
+      }
     default:
       return {...state}
   }

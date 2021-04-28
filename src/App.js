@@ -9,12 +9,13 @@ import FallbackPage from './components/FallbackPage';
 import Footer from './components/Footer';
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { setAnimes, logout } from './redux/actionCreators'
+import { setAnimes, logout, autoLogin } from './redux/actionCreators'
 import { Switch, Route } from 'react-router-dom'
 
 class App extends Component  {
 
   componentDidMount(){
+    localStorage.token && this.props.autoLogin()
     this.props.setAnimes()
   }
 
@@ -46,4 +47,4 @@ class App extends Component  {
 
 const mapStateToProps = (state) => ({user: state.user})
 
-export default connect(mapStateToProps, { setAnimes, logout })(App);
+export default connect(mapStateToProps, { setAnimes, logout, autoLogin })(App);

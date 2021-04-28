@@ -9,7 +9,7 @@ const Login = (props) => {
   const onSubmit = (e) => {
     e.preventDefault()
     if (signup){
-      if (password == passwordConfirmation){
+      if (password === passwordConfirmation){
         sendSignup({username: username, password: password})
       } else {
         alert("Those passwords don't match!")

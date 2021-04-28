@@ -74,9 +74,62 @@ export const sendLogin = (userData) => {
   }
 }
 
+export const autoLogin = () => {
+  return dispatch => {
+    // localhost:3000/users
+    fetch(API + "/autologin", {
+      method: 'POST', // or 'PUT'
+      headers: {
+        'Authorization': localStorage.token,
+      },
+    })
+    .then(response => response.json())
+    .then(response => {
+      console.log("Auto Hello")
+      dispatch({
+      type: "SET_USER",
+      payload: {user: response.user}
+    })
+  })
+  }
+}
+
 export const logout = () => {
   return dispatch => {
     localStorage.clear("token")
     dispatch({type: "LOGOUT"})
   }
 }
+
+export const reviewFormChange = (e) => ({
+  type: "REVIEW_FORM_CHANGE",
+  payload: {name: e.target.name, value: e.target.value}
+})
+
+export const submitReview = (reviewData) => {
+  return dispatch => {
+    fetch(API + "/reviews", {
+      method: 'POST', // or 'PUT'
+      headers: {
+        'Authorization': localStorage.token,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(reviewData)
+    })
+    .then(res=> res.json())
+    .then(review => dispatch({
+      type: "SET_REVIEW",
+      payload: review
+    }))
+  }
+}
+
+export const handleSearchFormChange = (e) => {
+  const target = e.target;
+  const value = target.type === 'checkbox' ? target.checked : target.value;
+  return ({
+    type: "FILTERS_FORM_CHANGE",
+    payload: {name: e.target.name, value: value}
+  })
+}
+
