@@ -74,25 +74,6 @@ export const sendLogin = (userData) => {
   }
 }
 
-export const autoLogin = () => {
-  return dispatch => {
-    // localhost:3000/users
-    fetch(API + "/autologin", {
-      method: 'POST', // or 'PUT'
-      headers: {
-        'Authorization': localStorage.token,
-      },
-    })
-    .then(response => response.json())
-    .then(response => {
-      dispatch({
-      type: "SET_USER",
-      payload: {user: response.user}
-    })
-  })
-  }
-}
-
 export const logout = () => {
   return dispatch => {
     localStorage.clear("token")
