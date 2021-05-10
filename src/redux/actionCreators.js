@@ -23,6 +23,19 @@ export const setSelectedAnime = (id) => {
   )}
 }
 
+export const setSelectedUser = (id) => {
+  console.log(id)
+  return dispatch => {
+    fetch(API + "/users/" + id)
+    .then(res => res.json())
+    .then(anime => dispatch({
+      type: "SET_SELECTED_USER",
+      payload: user
+    })
+  )}
+}
+
+
 export const unsetAnime = () => ({type: "UNSET_ANIME"})
 
 export const toggleSignup = () => ({type: "TOGGLE_SIGNUP"})
