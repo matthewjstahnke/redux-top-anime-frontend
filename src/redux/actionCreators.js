@@ -12,7 +12,7 @@ export const setAnimes = () => {
   )}
 }
 export const setSelectedAnime = (id) => {
-  console.log(id)
+  //console.log(id)
   return dispatch => {
     fetch(API + "/animes/" + id)
     .then(res => res.json())
@@ -23,17 +23,28 @@ export const setSelectedAnime = (id) => {
   )}
 }
 
-export const setSelectedUser = (id) => {
-  console.log(id)
+export const setUsers = () => {
   return dispatch => {
-    fetch(API + "/users/" + id)
+    fetch(API + "/users")
     .then(res => res.json())
-    .then(anime => dispatch({
-      type: "SET_SELECTED_USER",
-      payload: user
+    .then(users => dispatch({
+      type: "SET_USERS",
+      payload: users
     })
   )}
 }
+
+// export const setSelectedUser = (id) => {
+//   console.log(id)
+//   return dispatch => {
+//     fetch(API + "/users/" + id)
+//     .then(res => res.json())
+//     .then(anime => dispatch({
+//       type: "SET_SELECTED_USER",
+//       payload: users
+//     })
+//   )}
+// }
 
 
 export const unsetAnime = () => ({type: "UNSET_ANIME"})
@@ -44,6 +55,11 @@ export const handleLoginFormChange = (e) => ({
   type: "LOGIN_FORM_CHANGE",
   payload: {name: e.target.name, value: e.target.value}
 })
+
+export const onlyUnique = (value, index, self) => {
+  //debugger
+  return self.indexOf(value) === index;
+}
 
 export const sendSignup = (userData) => {
   return dispatch => {
@@ -98,7 +114,7 @@ export const autoLogin = () => {
     })
     .then(response => response.json())
     .then(response => {
-      console.log("Auto Hello")
+      //console.log("Auto Hello")
       dispatch({
       type: "SET_USER",
       payload: {user: response.user}
