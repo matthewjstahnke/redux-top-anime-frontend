@@ -118,6 +118,29 @@ h3 {
   height: 300px;
 }
 
+.userCard img {
+  width: 250px;
+  height: 300px;
+}
+.userCard a {
+  max-width: 250px;
+  color: hotpink;
+}
+
+.userCard {
+  /* margin: 10px; */
+  background-color: #560f68;
+  border-radius: 10px;
+  /* display: flex; */
+  /* justify-content: space-around; */
+}
+
+.poster img{
+  width: 450px;
+  height: 600px;
+}
+
+
 .review {
   background-color: rgb(98, 9, 116);
   margin-left: 20%;
@@ -125,6 +148,14 @@ h3 {
   margin-top: .5em;
   border-radius: 5px;
   padding: 1em;
+}
+
+.review b{
+  color: hotpink;
+}
+
+.review a{
+  color: hotpink;
 }
 
 .show img {
